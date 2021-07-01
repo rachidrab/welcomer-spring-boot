@@ -15,7 +15,116 @@
     <property name="datetimeType" value="datetime" dbms="oracle, mssql, postgresql, h2"/>
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20210618213916_added_entity_Request.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20210618213916_added_entity_constraints_Request.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
     <!-- jhipster-needle-liquibase-add-incremental-changelog - JHipster will add incremental liquibase changelogs here -->
+    <changeSet author="rachid (generated)" id="1624189547796-1">
+        <addColumn tableName="jhi_user">
+            <column name="ancien_matricule" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-2">
+        <addColumn tableName="request">
+            <column name="body" type="varchar(255)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-3">
+        <addColumn tableName="jhi_user">
+            <column name="comment" type="varchar(2000)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-4">
+        <addColumn tableName="jhi_user">
+            <column name="contact_it_site_arrivee" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-5">
+        <addColumn tableName="jhi_user">
+            <column name="contact_it_site_depart" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-6">
+        <addColumn tableName="jhi_user">
+            <column name="date_embauche" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-7">
+        <addColumn tableName="jhi_user">
+            <column name="date_expatriation" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-8">
+        <addColumn tableName="jhi_user">
+            <column name="date_off_boarding" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-9">
+        <addColumn tableName="jhi_user">
+            <column name="first_call_back_day" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-10">
+        <addColumn tableName="jhi_user">
+            <column name="integration_date" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547797789-10">
+        <addColumn tableName="jhi_user">
+            <column name="instalation_date" type="datetime(6)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-11">
+        <addColumn tableName="jhi_user">
+            <column name="is_expatriation" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-12">
+        <addColumn tableName="jhi_user">
+            <column name="is_off_boarding" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-13">
+        <addColumn tableName="jhi_user">
+            <column name="is_on_boarding" type="bit">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-14">
+        <addColumn tableName="jhi_user">
+            <column name="nouveau_matricule" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-15">
+        <addColumn tableName="jhi_user">
+            <column name="phone_number" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-16">
+        <addColumn tableName="jhi_user">
+            <column name="remarque_rh" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-17">
+        <addColumn tableName="jhi_user">
+            <column name="ticket_expatriation" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-18">
+        <addColumn tableName="jhi_user">
+            <column name="ticket_off_boarding" type="varchar(50)"/>
+        </addColumn>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-21">
+        <addForeignKeyConstraint baseColumnNames="validated_by_id" baseTableName="request" constraintName="FKc0bttfom22rlmy0ntx2pq1nm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
+    <changeSet author="rachid (generated)" id="1624189547796-22">
+        <addForeignKeyConstraint baseColumnNames="created_by_id" baseTableName="request" constraintName="FKoa1v3ck6c1pf6c0ecckuptjmm" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="jhi_user" validate="true"/>
+    </changeSet>
 </databaseChangeLog>
