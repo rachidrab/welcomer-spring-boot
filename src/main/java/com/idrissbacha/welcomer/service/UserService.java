@@ -174,6 +174,25 @@ public class UserService {
         user.setResetKey(RandomUtil.generateResetKey());
         user.setResetDate(Instant.now());
         user.setActivated(true);
+        // adding fields
+        user.setComment(userDTO.getComment());
+        user.setIntegrationDate(userDTO.getIntegrationDate());
+        user.setInstalationDate(userDTO.getInstalationDate());
+        user.setFirstCallBackDay(userDTO.getFirstCallBackDay());
+        user.setRemarqueRh(userDTO.getRemarqueRh());
+        user.setAncienMatricule(userDTO.getAncienMatricule());
+        user.setNouveauMatricule(userDTO.getNouveauMatricule());
+        user.setContactItSiteDepart(userDTO.getContactItSiteDepart());
+        user.setContactItSiteArrivee(userDTO.getContactItSiteArrivee());
+        user.setPhoneNumber(userDTO.getPhoneNumber());
+        user.setOnBoarding(userDTO.isOnBoarding());
+        user.setOffBoarding(userDTO.isOffBoarding());
+        user.setTicketOffBoarding(userDTO.getTicketOffBoarding());
+        user.setTicketExpatriation(userDTO.getTicketExpatriation());
+        user.setDateOffBoarding(userDTO.getDateOffBoarding());
+        user.setDateExpatriation(userDTO.getDateExpatriation());
+        user.setDateEmbauche(userDTO.getDateEmbauche());
+
         if (userDTO.getAuthorities() != null) {
             Set<Authority> authorities = userDTO
                 .getAuthorities()
@@ -213,8 +232,35 @@ public class UserService {
                     user.setImageUrl(userDTO.getImageUrl());
                     user.setActivated(userDTO.isActivated());
                     user.setLangKey(userDTO.getLangKey());
+                    // adding fields
+                    user.setComment(userDTO.getComment());
+                    user.setIntegrationDate(userDTO.getIntegrationDate());
+                    user.setInstalationDate(userDTO.getInstalationDate());
+                    user.setFirstCallBackDay(userDTO.getFirstCallBackDay());
+                    user.setRemarqueRh(userDTO.getRemarqueRh());
+                    user.setAncienMatricule(userDTO.getAncienMatricule());
+                    user.setNouveauMatricule(userDTO.getNouveauMatricule());
+                    user.setContactItSiteDepart(userDTO.getContactItSiteDepart());
+                    user.setContactItSiteArrivee(userDTO.getContactItSiteArrivee());
+                    user.setPhoneNumber(userDTO.getPhoneNumber());
+                    user.setOnBoarding(userDTO.isOnBoarding());
+                    user.setOffBoarding(userDTO.isOffBoarding());
+                    user.setTicketOffBoarding(userDTO.getTicketOffBoarding());
+                    user.setTicketExpatriation(userDTO.getTicketExpatriation());
+                    user.setDateOffBoarding(userDTO.getDateOffBoarding());
+                    user.setDateExpatriation(userDTO.getDateExpatriation());
+                    user.setDateEmbauche(userDTO.getDateEmbauche());
                     Set<Authority> managedAuthorities = user.getAuthorities();
                     managedAuthorities.clear();
+                    // setting service
+                    if(userDTO.getTicketOffBoarding() != null) {
+                        user.setOffBoarding(true);
+                    } else if(userDTO.getTicketExpatriation() != null) {
+                        user.setExpatriation(true);
+                    } else {
+                        user.setOnBoarding(true);
+                    }
+
                     userDTO
                         .getAuthorities()
                         .stream()
@@ -301,7 +347,8 @@ public class UserService {
 
     @Transactional(readOnly = true)
     public Optional<User> getUserWithAuthoritiesByLogin(String login) {
-        return userRepository.findOneWithAuthoritiesByLogin(login);
+        Optional<User> userOptional = userRepository.findOneWithAuthoritiesByLogin(login);
+        return userOptional;
     }
 
     @Transactional(readOnly = true)

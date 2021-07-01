@@ -65,6 +65,72 @@ public class User extends AbstractAuditingEntity implements Serializable {
     @Column(name = "image_url", length = 256)
     private String imageUrl;
 
+    @Column(name = "date_embauche")
+    private Instant dateEmbauche;
+
+    @Column(name = "instalation_date")
+    private Instant instalationDate;
+
+    @Size(max = 50)
+    @Column(name = "phone_number", length = 50)
+    private String phoneNumber;
+
+    @NotNull
+    @Column(name = "is_on_boarding", nullable = false)
+    private boolean isOnBoarding;
+
+    @NotNull
+    @Column(name = "is_off_boarding", nullable = false)
+    private boolean isOffBoarding;
+
+    @NotNull
+    @Column(name = "is_expatriation", nullable = false)
+    private boolean isExpatriation;
+
+    @Column(name = "date_off_boarding")
+    private Instant dateOffBoarding;
+
+    @Size(max = 50)
+    @Column(name = "ticket_off_boarding", length = 50)
+    private String ticketOffBoarding;
+
+    @Column(name = "date_expatriation")
+    private Instant dateExpatriation;
+
+    @Size(max = 50)
+    @Column(name = "ticket_expatriation", length = 50)
+    private String ticketExpatriation;
+
+    @Size(max = 50)
+    @Column(name = "ancien_matricule", length = 50)
+    private String ancienMatricule;
+
+    @Size(max = 50)
+    @Column(name = "nouveau_matricule", length = 50)
+    private String nouveauMatricule;
+
+    @Size(max = 50)
+    @Column(name = "contact_it_siteDepart", length = 50)
+    private String contactItSiteDepart;
+
+    @Size(max = 50)
+    @Column(name = "contact_it_site_arrivee", length = 50)
+    private String contactItSiteArrivee;
+
+    @Size(max = 50)
+    @Column(name = "remarque_rh", length = 50)
+    private String remarqueRh;
+
+    @Column(name = "first_call_back_day")
+    private Instant firstCallBackDay;
+
+    @Column(name = "integration_date")
+    private Instant integrationDate;
+
+    @Size(max = 2000)
+    @Column(name = "comment", length = 2000)
+    private String comment;
+
     @Size(max = 20)
     @Column(name = "activation_key", length = 20)
     @JsonIgnore
@@ -103,6 +169,14 @@ public class User extends AbstractAuditingEntity implements Serializable {
     // Lowercase the login before saving it in database
     public void setLogin(String login) {
         this.login = StringUtils.lowerCase(login, Locale.ENGLISH);
+    }
+
+    public Instant getInstalationDate() {
+        return instalationDate;
+    }
+
+    public void setInstalationDate(Instant instalationDate) {
+        this.instalationDate = instalationDate;
     }
 
     public String getPassword() {
@@ -183,6 +257,142 @@ public class User extends AbstractAuditingEntity implements Serializable {
 
     public void setLangKey(String langKey) {
         this.langKey = langKey;
+    }
+
+    public Instant getDateEmbauche() {
+        return dateEmbauche;
+    }
+
+    public void setDateEmbauche(Instant dateEmbauche) {
+        this.dateEmbauche = dateEmbauche;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public boolean isOnBoarding() {
+        return isOnBoarding;
+    }
+
+    public void setOnBoarding(boolean onBoarding) {
+        isOnBoarding = onBoarding;
+    }
+
+    public boolean isOffBoarding() {
+        return isOffBoarding;
+    }
+
+    public void setOffBoarding(boolean offBoarding) {
+        isOffBoarding = offBoarding;
+    }
+
+    public boolean isExpatriation() {
+        return isExpatriation;
+    }
+
+    public void setExpatriation(boolean expatriation) {
+        isExpatriation = expatriation;
+    }
+
+    public Instant getDateOffBoarding() {
+        return dateOffBoarding;
+    }
+
+    public void setDateOffBoarding(Instant dateOffBoarding) {
+        this.dateOffBoarding = dateOffBoarding;
+    }
+
+    public String getTicketOffBoarding() {
+        return ticketOffBoarding;
+    }
+
+    public void setTicketOffBoarding(String ticketOffBoarding) {
+        this.ticketOffBoarding = ticketOffBoarding;
+    }
+
+    public Instant getDateExpatriation() {
+        return dateExpatriation;
+    }
+
+    public void setDateExpatriation(Instant dateExpatriation) {
+        this.dateExpatriation = dateExpatriation;
+    }
+
+    public String getTicketExpatriation() {
+        return ticketExpatriation;
+    }
+
+    public void setTicketExpatriation(String ticketExpatriation) {
+        this.ticketExpatriation = ticketExpatriation;
+    }
+
+    public String getAncienMatricule() {
+        return ancienMatricule;
+    }
+
+    public void setAncienMatricule(String ancienMatricule) {
+        this.ancienMatricule = ancienMatricule;
+    }
+
+    public String getNouveauMatricule() {
+        return nouveauMatricule;
+    }
+
+    public void setNouveauMatricule(String nouveauMatricule) {
+        this.nouveauMatricule = nouveauMatricule;
+    }
+
+    public String getContactItSiteDepart() {
+        return contactItSiteDepart;
+    }
+
+    public void setContactItSiteDepart(String contactItSiteDepart) {
+        this.contactItSiteDepart = contactItSiteDepart;
+    }
+
+    public String getContactItSiteArrivee() {
+        return contactItSiteArrivee;
+    }
+
+    public void setContactItSiteArrivee(String contactItSiteArrivee) {
+        this.contactItSiteArrivee = contactItSiteArrivee;
+    }
+
+    public String getRemarqueRh() {
+        return remarqueRh;
+    }
+
+    public void setRemarqueRh(String remarqueRh) {
+        this.remarqueRh = remarqueRh;
+    }
+
+    public Instant getFirstCallBackDay() {
+        return firstCallBackDay;
+    }
+
+    public void setFirstCallBackDay(Instant firstCallBackDay) {
+        this.firstCallBackDay = firstCallBackDay;
+    }
+
+    public Instant getIntegrationDate() {
+        return integrationDate;
+    }
+
+    public void setIntegrationDate(Instant integrationDate) {
+        this.integrationDate = integrationDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
     public Set<Authority> getAuthorities() {

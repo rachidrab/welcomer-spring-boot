@@ -1,6 +1,8 @@
 package com.idrissbacha.welcomer.service.dto;
 
 import com.idrissbacha.welcomer.domain.User;
+import java.time.Instant;
+import java.util.Set;
 
 /**
  * A DTO representing a user, with only the public attributes.
@@ -8,16 +10,13 @@ import com.idrissbacha.welcomer.domain.User;
 public class UserDTO {
 
     private Long id;
-
     private String login;
-
     public UserDTO() {
         // Empty constructor needed for Jackson.
     }
 
     public UserDTO(User user) {
         this.id = user.getId();
-        // Customize it here if you need, or not, firstName/lastName/etc
         this.login = user.getLogin();
     }
 
