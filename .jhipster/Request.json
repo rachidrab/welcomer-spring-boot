@@ -1,0 +1,51 @@
+{
+  "fields": [
+    {
+      "fieldName": "isValid",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isDelivered",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deliveryDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "2000"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipName": "createdBy",
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "request"
+    },
+    {
+      "relationshipName": "validatedBy",
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "request"
+    }
+  ],
+  "service": "serviceImpl",
+  "dto": "no",
+  "jpaMetamodelFiltering": false,
+  "readOnly": false,
+  "pagination": "pagination",
+  "name": "Request",
+  "changelogDate": "20210618213916"
+}
